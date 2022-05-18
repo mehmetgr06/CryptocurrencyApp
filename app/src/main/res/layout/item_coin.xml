@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.cryptocurrencyapp.domain.model.Coin" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="12dp"
+        android:background="@color/black">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_coin"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{@string/formatted_coin_name(item.rank,item.name,item.symbol)}"
+            android:textColor="@color/gray_light"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_is_active"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bitcoin" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_is_active"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="@{item.isActive ? @string/title_active : @string/title_active}"
+            android:textColor="@{item.isActive ? @color/green: @color/gray_light}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_coin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_coin"
+            tools:text="active"
+            tools:textColor="@color/green" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

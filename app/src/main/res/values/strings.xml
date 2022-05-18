@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CryptocurrencyApp</string>
+    <string name="formatted_coin_name">%1d. %1s(%1s)</string>
+    <string name="title_active">active</string>
+    <string name="title_inactive">inactive</string>
+    <string name="title_coin_list">Coin List</string>
 </resources>
